@@ -5,7 +5,7 @@ services:
     runtime: python
     region: oregon
     plan: free
-    buildCommand: pip install uv && uv sync --frozen --no-dev
+    buildCommand: pip install uv && uv sync --frozen --no-dev && uv run python download.py
     startCommand: uv run uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
@@ -26,11 +26,11 @@ services:
         value: openai/gpt-oss-20b
       - key: GROQ_API_KEY
         sync: false  # Must be set manually — NEVER commit secrets
-      - key: LANGSMITH_API_KEY
-        sync: false  # Must be set manually
-      - key: LANGSMITH_TRACING_V2
+      - key: LANGCHAIN_API_KEY
+        sync: false  # Must be set manually (was LANGSMITH_API_KEY — wrong name)
+      - key: LANGCHAIN_TRACING_V2
         value: "true"
-      - key: LANGSMITH_PROJECT
+      - key: LANGCHAIN_PROJECT
         value: production-api
     healthCheckPath: /health
     autoDeploy: true
