@@ -3,14 +3,14 @@ Response Caching Layer
 In-memory cache with TTL for LLM response deduplication.
 """
 
-from embedder import Embedder
+from .embedder import Embedder
 import hashlib
 import time
 from typing import Optional
 
 
 
-embed = Embedder("models/Xenova/bge-small-en-v1.5")
+embed = Embedder("models/Xenova/all-MiniLM-L6-v2")
 
 
 class ResponseCache:

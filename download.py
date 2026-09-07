@@ -46,4 +46,4 @@ def download(repo, dest="models"):
 
 if __name__ == "__main__":
     download("Xenova/all-MiniLM-L6-v2")
-    download("Xenova/bge-small-en-v1.5")
+    # download("Xenova/bge-small-en-v1.5")
